@@ -1,0 +1,17 @@
+mat-toolbar {
+  display: flex;
+  justify-content: center;
+}
+button, a{
+  border: none;
+  background-color: #F5F5F5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+a {
+  text-decoration: none;
+  color: black;
+  
+}

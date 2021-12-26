@@ -1,0 +1,17 @@
+<div class="contenedor">
+  <div *ngFor="let pelicula of peliculas" class="body">
+    <mat-card class="example-card" style="width: 340px;">
+    
+      <img mat-card-image src="{{ pelicula.url }}" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          {{ pelicula.descripcion }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/webapp/info/{{pelicula.id}}">COMPRAR </button>
+        <button mat-raised-button color="link" [routerLink]="['/webapp/carrito']">CARRITO</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

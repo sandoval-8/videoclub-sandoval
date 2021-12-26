@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>CREATE</h1>
+    <mat-card>
+        <form formGroup="formGroup">
+            <mat-form-field appearance="fill" class="id tam-md">
+                <mat-label>ID</mat-label>
+                <input matInput (keyup)="buscarPelicula()" formControlName="id">
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="pelicula tam-md">
+                <mat-label>Pelicula</mat-label>
+                <input matInput>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="precio tam-md">
+                <mat-label>Precio</mat-label>
+                <input matInput>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="clasificacion tam-md">
+                <mat-label>Clasificación</mat-label>
+                <mat-select>
+                    <mat-option value="none">none</mat-option>
+                    <mat-option value="G">G</mat-option>
+                    <mat-option value="PG">PG</mat-option>
+                    <mat-option value="PG-13">PG-13</mat-option>
+                    <mat-option value="R">R</mat-option>
+                    <mat-option value="NC-17">NC-17</mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill" >
+                <mat-label>Descripción</mat-label>
+                <textarea matInput class="descripcion"></textarea>
+            </mat-form-field>
+            <div style="display: flex; justify-content: center;">
+                <button mat-raised-button color="primary">Cargar</button>
+                <button mat-raised-button style="margin-left: 35px;">Cancelar</button>
+            </div>
+        </form>
+    </mat-card>
+</div>

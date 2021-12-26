@@ -1,0 +1,30 @@
+<div class="body">
+    <div class="login">
+        <mat-card>
+            <form [formGroup]="form" (ngSubmit)="registrarse()">
+                <h1>Registrarse</h1>
+                <mat-form-field class="ancho" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput autocomplete="off" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="ancho" appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput autocomplete="off" formControlName="nombre">
+                </mat-form-field>
+                <mat-form-field class="ancho" appearance="fill">
+                    <mat-label>Nueva Contraseña</mat-label>
+                    <input type="password" matInput autocomplete="off" formControlName="newcontraseña">
+                </mat-form-field>
+                <mat-form-field class="ancho" appearance="fill">
+                    <mat-label>Contraseña</mat-label>
+                    <input type="password" matInput autocomplete="off" formControlName="contraseña">
+                </mat-form-field>
+                <div class="footer-button">
+                    <button mat-raised-button class="ancho" color="primary"
+                        [disabled]="form.invalid">Registrarse</button>
+                    <button mat-raised-button class="ancho" (click)="redirecToLogin()">Login</button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

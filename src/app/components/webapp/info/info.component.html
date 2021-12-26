@@ -1,0 +1,28 @@
+<div>
+    <mat-card>
+        <div class="row" style="height: 100%;">
+            <div class="col" style="height: 100%;">
+              <img src="{{ pelicula.url }}" alt="...">
+            </div>
+            <div class="col">
+              <div class="body">
+                <h5 class="title">{{ pelicula.nombre }}</h5>
+                <h6>Sinapsis</h6>
+                <p class="text descripcion" style="max-width: 95%;">{{ pelicula.descripcion }}</p>
+                <p class="text"><small class="text-muted">Clasificación: {{ pelicula.clasificacion.clasificacion }}</small></p>
+                <p><small class="text-muted">Estrellas: {{ pelicula.calificacion }}</small></p>
+                <div class="footer-card-info">
+                  <div>
+                    <button mat-raised-button color="primary">Comprar ahora</button><p>$ {{ pelicula.precio }}</p>
+                  </div>
+                  <div>
+                    <button mat-raised-button (click)="agregarAlCarrito(pelicula.id)" style="margin-right: 50px">
+                        Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </mat-card>
+</div>

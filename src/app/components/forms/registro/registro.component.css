@@ -1,0 +1,30 @@
+.body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+    .footer-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+    .footer-button button:nth-child(2){
+    margin-left: 10px;
+}
+mat-card {
+    background-color: #fafafa;
+}
