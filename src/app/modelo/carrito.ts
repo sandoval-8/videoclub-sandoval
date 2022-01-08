@@ -1,6 +1,7 @@
 export interface Carrito{
     id?:number,
-    nombre_pelicula?:string,
+    nombre:string,
+    clasificacion?:string,
     cantidad?:number,
     precio?:number
 }

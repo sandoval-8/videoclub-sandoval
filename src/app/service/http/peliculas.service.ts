@@ -9,7 +9,7 @@ import { map } from "rxjs/operators";
 })
 export class PeliculasService {
 
-  private URL = "https://demo7938222.mockable.io/peliculas";
+  private URL = 'https://61d8db6de6744d0017ba8cd3.mockapi.io/peliculas';
 
   constructor(private http:HttpClient) { }
 
@@ -18,10 +18,6 @@ export class PeliculasService {
   }
   
   getMovie(id:number):Observable<Pelicula> {
-    return this.http.get<Pelicula[]>(this.URL).pipe(
-      map((arrayPelicula)=>{
-        return arrayPelicula[id];
-      })
-    );
+    return this.http.get<Pelicula>(this.URL + "/" + id);
   }
 }

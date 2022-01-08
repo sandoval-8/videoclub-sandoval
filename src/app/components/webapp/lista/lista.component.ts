@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PeliculasService} from "../../../service/http/peliculas.service";
 import {Observable, Subscription} from "rxjs";
 import {Pelicula} from "../../../modelo/pelicula";
+import { CarritoService } from 'src/app/service/http/carrito.service';
 
 @Component({
   selector: 'app-lista',
@@ -18,7 +19,7 @@ export class ListaComponent {
 
   subscription:Subscription = new Subscription();
 
-  constructor(private httpPeliculaService:PeliculasService) {
+  constructor(private httpPeliculaService:PeliculasService, private carritoService:CarritoService) {
     this.obs$ = this.httpPeliculaService.getAllMovie();
   }
 
@@ -37,8 +38,16 @@ export class ListaComponent {
 
   /* Editar Interpolación */
   
-  editar() {
-    
+  carrito(pelicula:Pelicula) {
+    console.log("se ejecuto carrito");
+    this.carritoService.setCarrito(
+      {
+        "nombre":pelicula.nombre,
+        "clasificacion": pelicula.clasificacion.clasificacion,
+        "cantidad": 1,
+        "precio": pelicula.precio
+      }
+    ).subscribe;
   }
 
 /*  getListMovie(){

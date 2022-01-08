@@ -30,28 +30,19 @@ export class LoginComponent implements OnInit {
   ingresar() {
     let username = this.form.get('usuario')?.value;
     let password = this.form.get('contraseña')?.value;
-    let isLogin = false;
     this.subscription = this.serviceLogin.login().subscribe((users) => {
-      for (let user of users) {
-        console.log(user.username);
-        console.log(username);
-        console.log(user.password);
-        console.log(password);
-        if (username == user.username && password == user.password) {
-          
-          this.USER.setUsername(user.username);
-          this.USER.setRol(user.rol);
-          console.log('Logueado con exito!');
-          isLogin = true;
-          break;
+      console.log(users);
+      for(let user of users){
+        console.log(user.username + " " + username);
+        if(user.username == username && user.password == password){
+          console.log("Logueado");
+          if(user.rol == "ADMIN"){
+            this.router.navigate(['/dashboard']);
+          }else {
+            this.router.navigate(['/webapp']);
+          }
+          break
         }
-      }
-      if(isLogin){
-        localStorage.setItem('user', JSON.stringify(this.USER));
-        this.router.navigate(['/webapp/lista']);
-      }else {
-        console.log('Usuario o contraseña incorrecta');
-        this.error()
       }
     });
   }
@@ -59,10 +50,6 @@ export class LoginComponent implements OnInit {
   error() {
     this.form.get('usuario')?.disable;
     this.form.reset;
-  }
-
-  fakeLoading() {
-
   }
   redirecToRegistro() {
     this.router.navigate(['/form/registro']);

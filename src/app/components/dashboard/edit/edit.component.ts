@@ -12,7 +12,7 @@ export class EditComponent implements OnInit {
 
   formGroup:FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private http:PeliculasService) {
+  constructor(private formBuilder:FormBuilder, private httpPelicula:PeliculasService) {
     this.formGroup = this.formBuilder.group(
       {
         id: [''],
@@ -28,11 +28,11 @@ export class EditComponent implements OnInit {
   }
 
   buscarPelicula() {
-    let id = this.formGroup.get("id")?.value;
+    let id = document.getElementById("inputId")?.getAttribute("value");
     console.log("id:" + id);
-    this.http.getMovie(id).subscribe((pelicula)=>{
+/*    this.httpPelicula.getMovie(id).subscribe((pelicula)=>{
       this.formGroup.get("pelicula")?.setValue("hola");
-    });
+    }); */
   }
 
 }

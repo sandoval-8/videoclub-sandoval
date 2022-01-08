@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const URL_REGISTRO = '';
+const URL_REGISTRO = 'https://61d8db6de6744d0017ba8cd3.mockapi.io/users';
 
 @Injectable({
   providedIn: 'root'

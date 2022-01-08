@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Carrito } from 'src/app/modelo/carrito';
 
-const URL_CARRITO:string = 'https://demo7938222.mockable.io/carrito';
+const URL_CARRITO:string = 'https://61d8db6de6744d0017ba8cd3.mockapi.io/carrito';
 
 @Injectable({
   providedIn: 'root'

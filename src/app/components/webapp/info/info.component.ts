@@ -49,7 +49,7 @@ export class InfoComponent implements OnInit {
   agregarAlCarrito(id:number){
     let peliculaCarrito:Carrito = {
       id:this.pelicula.id,
-      nombre_pelicula: this.pelicula.nombre,
+      nombre: this.pelicula.nombre,
       cantidad: 1,
       precio: this.pelicula.precio,
     };

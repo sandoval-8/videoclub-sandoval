@@ -10,7 +10,7 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary" routerLink="/webapp/info/{{pelicula.id}}">COMPRAR </button>
-        <button mat-raised-button color="link" [routerLink]="['/webapp/carrito']">CARRITO</button>
+        <button mat-raised-button (click)="carrito(pelicula)" color="link" [routerLink]="['/webapp/carrito']">CARRITO</button>
       </mat-card-actions>
     </mat-card>
   </div>
