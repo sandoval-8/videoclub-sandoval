@@ -1,4 +1,4 @@
-import {Clasificacion} from "../../../../videomania-sandoval/src/app/modelo/clasificacion";
+import {Clasificacion} from "./clasificacion";
 
 export interface Pelicula {
   id:number,

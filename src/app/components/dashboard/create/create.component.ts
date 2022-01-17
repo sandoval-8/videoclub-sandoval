@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { PeliculasService } from 'src/app/service/http/peliculas.service';
+import { Pelicula } from 'src/app/modelo/pelicula';
+import { DashboardService } from 'src/app/service/http/dashboard.service';
 
 @Component({
   selector: 'app-create',
@@ -11,7 +12,7 @@ export class CreateComponent implements OnInit {
 
   formGroup:FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private http:PeliculasService) {
+  constructor(private formBuilder:FormBuilder, private http:DashboardService) {
     this.formGroup = this.formBuilder.group(
       {
         id: [''],
@@ -26,6 +27,12 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  enviar(){
+    const pelicula:Pelicula = this.formGroup.value;
+    console.log("Guardado: " + pelicula.nombre); //pelicula.nombre retorna undefined
+    this.http.create(pelicula).subscribe((response)=> {
+      console.log("Guardado: " + response.nombre);
+    });
+  }
 
 }

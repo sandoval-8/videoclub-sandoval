@@ -1,7 +1,7 @@
 <div class="container">
     <h1>CREATE</h1>
     <mat-card>
-        <form formGroup="formGroup">
+        <form formGroup="formGroup" (submit)="enviar()">
             <mat-form-field appearance="fill" class="pelicula tam-md">
                 <mat-label>Pelicula</mat-label>
                 <input matInput formControlName="pelicula">
@@ -29,7 +29,7 @@
                 <textarea matInput class="descripcion" formControlName="descripcion"></textarea>
             </mat-form-field>
             <div style="display: flex; justify-content: center;">
-                <button mat-raised-button color="primary">Cargar</button>
+                <button mat-raised-button color="primary" type="submit">Cargar</button>
                 <button mat-raised-button style="margin-left: 35px;">Cancelar</button>
             </div>
         </form>
