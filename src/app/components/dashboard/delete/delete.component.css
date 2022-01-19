@@ -1,3 +1,13 @@
+.body {
+    width: 97vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*    background-color: aqua; */
+}
 mat-card {
     width: 80vw;
+}
+table {
+    width: 90%;
 }

@@ -20,4 +20,8 @@ export class CarritoService {
     return this.http.post<Carrito>(URL_CARRITO, carrito);
   }
 
+  public deleteElement(id:number): Observable<Carrito>{
+    return this.http.delete<Carrito>(URL_CARRITO + '/' + id);
+  }
+
 }

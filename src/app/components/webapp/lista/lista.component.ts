@@ -42,12 +42,14 @@ export class ListaComponent {
     console.log("se ejecuto carrito");
     this.carritoService.setCarrito(
       {
-        "nombre":pelicula.nombre,
+        "nombre": pelicula.nombre,
         "clasificacion": pelicula.clasificacion.clasificacion,
         "cantidad": 1,
         "precio": pelicula.precio
       }
-    ).subscribe;
+    ).subscribe(()=> {
+      console.log("SE CARGO AL REGISTRO!")
+    });
   }
 
 /*  getListMovie(){

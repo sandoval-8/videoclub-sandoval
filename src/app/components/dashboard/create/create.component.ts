@@ -16,7 +16,7 @@ export class CreateComponent implements OnInit {
     this.formGroup = this.formBuilder.group(
       {
         id: [''],
-        pelicula: [''],
+        nombre: [''],
         precio: [''],
         clasificacion: [''],
         descripcion: ['']

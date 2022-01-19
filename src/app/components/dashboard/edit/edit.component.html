@@ -1,25 +1,25 @@
 <div class="container">
     <h1>CREATE</h1>
     <mat-card>
-        <form formGroup="formGroup">
+        <form [formGroup]="formGroup" (submit)="editar()">
             <mat-form-field appearance="fill" class="id tam-md">
                 <mat-label>ID</mat-label>
-                <input matInput (keypress)="buscarPelicula()" id="inputId" formControlName="id">
+                <input matInput (keyup)="buscarPelicula()" id="inputId" formControlName="id">
             </mat-form-field>
     
             <mat-form-field appearance="fill" class="pelicula tam-md">
                 <mat-label>Pelicula</mat-label>
-                <input matInput>
+                <input matInput formControlName="nombre">
             </mat-form-field>
     
             <mat-form-field appearance="fill" class="precio tam-md">
                 <mat-label>Precio</mat-label>
-                <input matInput>
+                <input matInput formControlName="precio">
             </mat-form-field>
     
             <mat-form-field appearance="fill" class="clasificacion tam-md">
                 <mat-label>Clasificación</mat-label>
-                <mat-select>
+                <mat-select formControlName="clasificacion">
                     <mat-option value="none">none</mat-option>
                     <mat-option value="G">G</mat-option>
                     <mat-option value="PG">PG</mat-option>
@@ -31,10 +31,10 @@
             
             <mat-form-field appearance="fill" >
                 <mat-label>Descripción</mat-label>
-                <textarea matInput class="descripcion"></textarea>
+                <textarea matInput class="descripcion" formControlName="descripcion"></textarea>
             </mat-form-field>
             <div style="display: flex; justify-content: center;">
-                <button mat-raised-button color="primary">Cargar</button>
+                <button mat-raised-button color="primary" type="submit">Editar</button>
                 <button mat-raised-button style="margin-left: 35px;">Cancelar</button>
             </div>
         </form>

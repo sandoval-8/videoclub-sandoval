@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Pelicula } from 'src/app/modelo/pelicula';
+import { DashboardService } from 'src/app/service/http/dashboard.service';
 import { PeliculasService } from 'src/app/service/http/peliculas.service';
+
 
 @Component({
   selector: 'app-edit',
@@ -10,13 +12,15 @@ import { PeliculasService } from 'src/app/service/http/peliculas.service';
 })
 export class EditComponent implements OnInit {
 
+  private id_inmutable: number = 0;
+
   formGroup:FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private httpPelicula:PeliculasService) {
+  constructor(private formBuilder:FormBuilder, private httpPelicula:PeliculasService, private httpDashboard: DashboardService) {
     this.formGroup = this.formBuilder.group(
       {
         id: [''],
-        pelicula: [''],
+        nombre: [''],
         precio: [''],
         clasificacion: [''],
         descripcion: ['']
@@ -27,12 +31,29 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  editar() {
+    let id = this.formGroup.get('id')?.value;
+    let peliculaUpdate:Pelicula = this.formGroup.value;
+    if(id){
+      this.id_inmutable = this.formGroup.get('id')?.value;
+      this.httpDashboard.edit(this.id_inmutable, peliculaUpdate).subscribe();
+    }else {
+
+    }
+  }
+
   buscarPelicula() {
-    let id = document.getElementById("inputId")?.getAttribute("value");
-    console.log("id:" + id);
-/*    this.httpPelicula.getMovie(id).subscribe((pelicula)=>{
-      this.formGroup.get("pelicula")?.setValue("hola");
-    }); */
+    let id = this.formGroup.get('id')?.value;
+    if(id){
+      this.httpPelicula.getMovie(id).subscribe((pelicula)=>{
+        this.formGroup.get("nombre")?.setValue(pelicula.nombre);
+        this.formGroup.get("precio")?.setValue(pelicula.precio);
+        this.formGroup.get("clasificacion")?.setValue(pelicula.clasificacion.clasificacion);
+        this.formGroup.get("descripcion")?.setValue(pelicula.descripcion);
+      }); 
+    }else {
+      this.formGroup.reset();
+    }    
   }
 
 }

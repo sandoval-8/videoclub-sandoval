@@ -16,8 +16,8 @@ export class DashboardService {
     return this.http.post<Pelicula>(this.URL, pelicula);
   }
 
-  edit(id:number):Observable<Pelicula> {
-    return this.http.put<Pelicula>(this.URL + id,{});
+  edit(id:number, pelicula: Pelicula):Observable<Pelicula> {
+    return this.http.put<Pelicula>(this.URL + '/' + id,pelicula);
   }
 
   delete(id:number):Observable<Pelicula> {
